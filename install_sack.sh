@@ -48,6 +48,10 @@ echo "Copying 'sag' to '$sack__install_main/sag'..."
 cp "$sack__install_cwd/sag" "$sack__install_main"
 chmod +x "$sack__install_main/sag"
 
+echo "Copying 'srg' to '$sack__install_main/srg'..."
+cp "$sack__install_cwd/srg" "$sack__install_main"
+chmod +x "$sack__install_main/srg"
+
 if [[ -f "$sack__install_sackrc/.sackrc" ]]; then
     echo >&2
     echo "It seems you already have a .sackrc from a previous install." >&2
