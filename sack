@@ -476,6 +476,8 @@ sack__default_tool=ack
 # Color parameter is different for ack / ag than for grep:
 sack__color_param='--color'
 
+sack__flags=''
+
 echo "sack__option is: $sack__option"
 
 # Determine which search tool to use
@@ -486,6 +488,7 @@ if [[ "$sack__option" == "-ag" ]]; then
 elif [[ "$sack__option" == "-rg" ]]; then
     sack__default_tool=rg
     sack__color_param='--color=always'
+    sack__flags='--line-number --no-heading'
     shift
 # Determine which search tool to use
 elif [[ "$sack__option" == "-grep" ]]; then
@@ -545,7 +548,6 @@ if [[ "$sack__profile_name" == "no_profile" ]]; then
     # We add the pwd as last argument to ack so the file names of output
     # are displayed as absolute paths, so that they can be shared across
     # multiple terminal / shell sessions
-    sack__flags=""
     sack__cwd=$(pwd) 
 else
     sack__flags="$sack__profile_preset_flags"
